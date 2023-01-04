@@ -13,7 +13,6 @@ class Generic:
         print(data, ctx)
         return Generic(record=data)
 
-
     def to_dict(self):
         return self.__dict__
 
@@ -65,7 +64,6 @@ class Generic:
     @classmethod
     def get_schema_to_produce_consume_data(cls, file_path):
         columns = next(pd.read_csv(file_path, chunksize=10)).columns
-
         schema = dict()
         schema.update({
             "$id": "http://example.com/myURI.schema.json",
@@ -84,10 +82,7 @@ class Generic:
                     }
                 }
             )
-        
-    
         schema = json.dumps(schema)
-
         print(schema)
         return schema
         

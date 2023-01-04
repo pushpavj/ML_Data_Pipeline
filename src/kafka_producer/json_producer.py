@@ -83,7 +83,7 @@ def product_data_using_file(topic,file_path):
             print(instance)
             logging.info(f"Topic: {topic} file_path:{instance.to_dict()}")
             producer.produce(topic=topic,
-                             key=string_serializer(str(uuid4()), instance.to_dict()),
+                                 key=string_serializer(str(uuid4()), instance.to_dict()),
                              value=json_serializer(instance, SerializationContext(topic, MessageField.VALUE)),
                              on_delivery=delivery_report)
             print("\nFlushing records...")
